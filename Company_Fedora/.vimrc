@@ -38,6 +38,28 @@ set encoding=utf-8
 "set expandtab      " tabs are converted to spaces, use only when required
 "set sm             " show matching braces, somewhat annoying...
 "set nowrap         " don't wrap lines
+function InsertPythonHeader()
+	    let l1 = getline(1)
+	    let l2 = getline(2)
+	    let l3 = getline(3)
+	    if  match('\#!/', l1) == 0
+	        exec 1
+	        normal O
+	        call setline(1,'#!/usr/bin/python')
+	    endif
+	    if match("\#", l2) == 0
+	        exec 2
+	        normal O
+	        call setline(2,'#-*- coding:utf-8 -*-')
+	    endif
+	    if match("\#", l3) == 0
+	        exec 3
+	        normal 0
+	        call setline(3,'')
+	    endif
+endfunction
+ 
+au FileType python call InsertPythonHeader()
 
 if version>=600
     syntax on          " syntax highlighing
