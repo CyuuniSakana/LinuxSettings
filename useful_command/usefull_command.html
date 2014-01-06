@@ -1,0 +1,43 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<h3>translation:</h3>
+		pkg_install: <a href="http://sourceforge.net/projects/translate/files/Translate%20Toolkit/">Translate Toolkit</a> , qt-devel, poedit.<br />
+		command: lrelease-qt4(ts to qm), msgfmt(po to gmo or mo), msgunfmt(mo or gmo to po), ts2po, po2ts ... etc<br />
+		$ lrease-qt4 ts [-qm qmfile]<br />
+		$ msgfmt po [-o mofile]<br />
+		<h3>redirect:</h3>
+		$ ./a.out &gt; file 2&gt;&amp;1
+		<h3>make live cd</h3>
+		$ sudo livecd-iso-to-disk --efi --reset-mbr --format Downloads/tmp/Linpus-Lite-2.1.0.1.06-x86_64-LiveCD.iso /dev/sdf
+		<h3> osc build</h3>
+		<a href="../Downloads/build-2011.01.10a-1.2.noarch.rpm">Build RPM file</a><br />
+		$ osc build --no-verify --root=
+		<h3>rpm command</h3>
+		$ rpm -ql pkg_name //list all files of pkg<br />
+		$ rpm -qa //list install pkgs<br />
+		$ rpm -qf file_name //get pkg_name from file<br />
+		$ rpm -qR pkg_name //get pkg dependence<br />
+		$ rpm -qi pkg_name //get pkg info<br />
+		<h3>xkbcomp(X11 keymap)</h3>
+		$ xkbcomp $DISPLAY xkb.dump //current's keyboard layout to file<br />
+		do some modify for xkb.dump<br />
+		$ xkbcomp xkb.dump $DISPLAY //load the modify result<br />
+		<h3>terminal keymap</h3>
+		modify the /lib/kbd/keymaps/i386/qwerty/ file and<br />
+		$ loadkeys gz_file
+		<h3>debug tool</h3>
+		valgrind
+		<h3>git</h3>
+		# First time<br />
+		$ git init<br />
+		$ git remote add origin git@192.168.0.67:Project<br />
+		$ git add *<br />
+		$ git commit<br />
+		$ git push origin master<br />
+		$ git branch -al //list all branch(local and server)<br />
+		$ git check branch_name <br />
+		$ git push origin branch name //create branch and push<br />
+	</body>
+</html>
